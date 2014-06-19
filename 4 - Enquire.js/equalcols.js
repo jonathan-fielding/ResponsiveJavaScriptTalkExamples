@@ -24,13 +24,13 @@
     enquire.register("(max-width: 979px)", {
         match : function() {
             equalCols.reset();
-        },
+        }
     });
 
     enquire.register("(min-width: 980px)", {
         match : function() {
             equalCols.setup();
-        },
+        }
     });
 
     ssm.ready();

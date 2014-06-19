@@ -1,18 +1,6 @@
 (function(){
     var $items = $('.items');
 
-    enquire.register("(max-width: 979px)", {
-        match : function() {
-            $items.addClass('mobile-accordion');
-            $items.find('h2').removeClass('active').next().hide();
-        },
-        unmatch: function(){
-            $items.removeClass('mobile-accordion');
-            $items.find('h2').next().show();
-        },
-    });
-
-
     $('body').on('click', '.mobile-accordion h2', function(){
         var $this = $(this), $next = $this.next();
 
@@ -26,4 +14,16 @@
             $this.addClass('active');
         }
     });
+
+    enquire.register("(max-width: 979px)", {
+        match : function() {
+            $items.addClass('mobile-accordion');
+            $items.find('h2').removeClass('active').next().hide();
+        },
+        unmatch: function(){
+            $items.removeClass('mobile-accordion');
+            $items.find('h2').next().show();
+        },
+    });
+
 }());

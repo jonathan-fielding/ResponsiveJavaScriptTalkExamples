@@ -1,6 +1,20 @@
 (function(){
    var $items = $('.items');
 
+    $('body').on('click', '.mobile-accordion h2', function(){
+        var $this = $(this), $next = $this.next();
+
+        if($this.hasClass('active')){
+            $this.next().hide();
+            $this.removeClass('active');
+        }
+        else{
+            $('h2.active').removeClass('active').next().hide();
+            $this.next().show();
+            $this.addClass('active');
+        }
+    });
+
     ssm.addState({
         id: 'mobile',
         maxWidth: 979,
@@ -15,18 +29,4 @@
     });
 
     ssm.ready();
-
-    $('body').on('click', '.mobile-accordion h2', function(){
-        var $this = $(this), $next = $this.next();
-
-        if($this.hasClass('active')){
-            $this.next().hide();
-            $this.removeClass('active');
-        }
-        else{
-            $('h2.active').removeClass('active').next().hide();
-            $this.next().show();
-            $this.addClass('active');
-        }
-    });
 }());
